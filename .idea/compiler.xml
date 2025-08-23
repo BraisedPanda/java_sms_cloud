@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+      </profile>
+      <profile name="Annotation profile for java_sms_cloud" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="java_sms_cloud_model" />
+        <module name="java_sms_cloud_user_provider" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="java_sms_cloud" options="-parameters" />
+      <module name="java_sms_cloud_common" options="-parameters" />
+      <module name="java_sms_cloud_model" options="-parameters" />
+      <module name="java_sms_cloud_user" options="-parameters" />
+      <module name="java_sms_cloud_user_api" options="-parameters" />
+      <module name="java_sms_cloud_user_provider" options="-parameters" />
+    </option>
+  </component>
+</project>
