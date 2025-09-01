@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: user-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: public
+        group: DEFAULT_GROUP
+        enabled: true
+        register-enabled: true
+        # 添加这些配置确保注册
+        ip: localhost  # 本机IP
+        port: 8002         # 服务端口
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        namespace: public
+        group: DEFAULT_GROUP
+        enabled: true
+        refresh-enabled: true
+
+
+

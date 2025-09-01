@@ -1,10 +1,9 @@
 package com.xqy.java_sms_cloud_model.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
-
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Data
 @Table(name = "orders")
