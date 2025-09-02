@@ -1,21 +1,20 @@
 package com.xqy.java_sms_cloud_model.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 
-
 @Data
-@Table(name = "goods")
+@TableName("goods")
 public class Goods {
-    @Id
-    @Column(name = "id")
+    @TableId
+    @TableField("id")
     private String id;
-    @Column(name = "name")
+    @TableField("name")
     private String name;
-    @Column(name = "total_count")
+    @TableField("total_count")
     private String totalCount;
 
     public String getId() {

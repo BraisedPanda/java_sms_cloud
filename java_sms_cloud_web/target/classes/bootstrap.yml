@@ -1,6 +1,6 @@
 spring:
   application:
-    name: user-service
+    name: web-service
   cloud:
     nacos:
       discovery:
@@ -19,3 +19,13 @@ spring:
 
 
 
+dubbo:
+  application:
+    name: web-service
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://localhost:8848
+  cloud:
+    subscribed-services: user-service  # 订阅的服务名

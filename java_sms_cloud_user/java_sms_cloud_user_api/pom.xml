@@ -13,7 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>java_sms_cloud_user_api</name>
     <description>java_sms_cloud_user_api</description>
-    <packaging>pom</packaging> <!-- 关键：打包方式为 pom -->
+    <packaging>jar</packaging> <!-- 关键：打包方式为 pom -->
 
 
     <build>

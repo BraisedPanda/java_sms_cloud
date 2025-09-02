@@ -24,7 +24,8 @@
         <!-- 统一管理其他依赖版本 -->
         <mysql.version>8.0.33</mysql.version>
         <druid.version>1.2.27</druid.version>
-        <mybatis-plus.version>3.2.0</mybatis-plus.version>
+        <mybatis.version>3.0.3</mybatis.version>
+        <mybatis-plus.version>3.5.6</mybatis-plus.version>
         <fastjson.version>1.2.47</fastjson.version>
         <redisson.version>3.16.5</redisson.version>
         <bootstrap.version>4.1.2</bootstrap.version>
@@ -91,6 +92,12 @@
             <version>${druid.version}</version>
         </dependency>
 
+        <!-- Spring Boot JDBC -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
         <!-- ========== ORM框架依赖 ========== -->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -98,10 +105,11 @@
             <version>${mybatis-plus.version}</version>
         </dependency>
 
-        <!-- ========== JPA依赖 ========== -->
+
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis.version}</version>
         </dependency>
 
         <!-- ========== JSON处理依赖 ========== -->
