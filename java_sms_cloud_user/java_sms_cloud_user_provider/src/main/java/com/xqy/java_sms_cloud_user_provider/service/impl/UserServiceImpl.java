@@ -7,13 +7,11 @@ import com.xqy.java_sms_cloud_model.model.UserInfo;
 import com.xqy.java_sms_cloud_user_api.service.UserInfoService;
 import com.xqy.java_sms_cloud_user_provider.mapper.UserInfoMapper;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.apache.dubbo.config.annotation.DubboService;
 
 import java.util.List;
 
-@Service
-
+@DubboService
 public class UserServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements UserInfoService {
 
     private final UserInfoMapper userInfoMapper;

@@ -9,7 +9,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication
 @EnableDiscoveryClient
 @MapperScan("com.xqy.java_sms_cloud_user_provider.mapper")
-//@EnableDubbo
 public class UserApplication {
 
     public static void main(String[] args) {

@@ -5,28 +5,31 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
 @TableName("user_info")
-public class UserInfo {
+public class UserInfo implements Serializable {
+    private static final long serialVersionUID = 1L;
     @TableId
-    @TableField("id")
-    private String id;
-    @TableField("name")
-    private String name;
+    @TableField("obid")
+    private String obid;
+    @TableField("user_name")
+    private String userName;
 
-    public String getId() {
-        return id;
+    public String getObid() {
+        return obid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setObid(String obid) {
+        this.obid = obid;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

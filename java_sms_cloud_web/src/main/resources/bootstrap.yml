@@ -17,6 +17,11 @@ spring:
         enabled: true
         refresh-enabled: true
 
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/sms_cloud?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 
 dubbo:
@@ -29,3 +34,6 @@ dubbo:
     address: nacos://localhost:8848
   cloud:
     subscribed-services: user-service  # 订阅的服务名
+
+server:
+  port: 8000
