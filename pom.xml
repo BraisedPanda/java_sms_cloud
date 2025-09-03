@@ -32,6 +32,7 @@
         <module>java_sms_cloud_common</module>
         <module>java_sms_cloud_user</module>
         <module>java_sms_cloud_web</module>
+        <module>java_sms_cloud_gateway</module>
     </modules>
 
     <!-- 依赖管理 -->

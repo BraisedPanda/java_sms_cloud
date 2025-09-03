@@ -26,12 +26,15 @@ spring:
         refresh-enabled: true
 
 dubbo:
+  application:
+    name: user-service-provider
   protocol:
     name: dubbo
   registry:
     address: nacos://127.0.0.1:8848
   scan:
     base-packages: com.xqy.java_sms_cloud_user_provider.service.impl # Dubbo服务接口实现类所在的包
+
 
 # MyBatis-Plus配置
 mybatis-plus:

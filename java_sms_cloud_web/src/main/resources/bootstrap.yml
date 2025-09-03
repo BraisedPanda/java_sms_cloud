@@ -26,7 +26,7 @@ spring:
 
 dubbo:
   application:
-    name: web-service
+    name: web-service-dubbo
   protocol:
     name: dubbo
     port: -1
