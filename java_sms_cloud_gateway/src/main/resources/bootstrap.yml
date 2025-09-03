@@ -29,8 +29,5 @@ spring:
             - Path=/api/user/**
           filters:
             - StripPrefix=1 # 过滤器：去掉Path的第一部分（/api），再转发给user-service
-
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
-    reactor.netty: DEBUG
+server:
+  port: 8000

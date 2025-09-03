@@ -36,4 +36,4 @@ dubbo:
     subscribed-services: user-service  # 订阅的服务名
 
 server:
-  port: 8000
+  port: 8001
