@@ -7,28 +7,25 @@
         <groupId>com.xqy</groupId>
         <artifactId>java_sms_cloud_common</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../java_sms_cloud_common/pom.xml</relativePath>
     </parent>
 
+
     <artifactId>java_sms_cloud_ai</artifactId>
+    <packaging>jar</packaging>
 
     <properties>
+        <spring-ai.version>1.1.0</spring-ai.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
-        <!-- Spring AI 核心依赖 -->
-        <dependency>
-            <groupId>group.springframework.ai</groupId>
-            <artifactId>spring-ai-core</artifactId>
-            <version>1.1.0</version> <!-- 注意查看最新版本 -->
-        </dependency>
-
-        <!-- 如果要调用阿里云 Qwen 模型 -->
         <dependency>
             <groupId>com.alibaba.cloud.ai</groupId>
             <artifactId>spring-ai-alibaba-starter</artifactId>
-            <version>1.0.0-M6.1</version>
+            <version>1.0.0-M5.1</version>
         </dependency>
+
 
     </dependencies>
 

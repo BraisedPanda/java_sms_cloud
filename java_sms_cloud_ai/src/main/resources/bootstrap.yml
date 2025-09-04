@@ -1,26 +1,26 @@
 spring:
   application:
-    name: ai-service # 应用名，也是Nacos中的Data ID的一部分
+    name: ai-service
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848
         namespace: public
         group: DEFAULT_GROUP
-        enabled: true
-        register-enabled: true
       config:
         server-addr: localhost:8848
         file-extension: yaml
         namespace: public
         group: DEFAULT_GROUP
-        enabled: true
-        refresh-enabled: true
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/sms_cloud?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
   ai:
-    alibaba:
-      qwen:
-        api-key: sk-5f479889c5414fdbbd465e02e7e60291
-        base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    dashscope:
+      api-key: sk-5f479889c5414fdbbd465e02e7e60291
 
 
 server:

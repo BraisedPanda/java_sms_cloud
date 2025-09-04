@@ -13,7 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>java_sms_cloud_model</name>
     <description>java_sms_cloud_model</description>
-
+    <packaging>jar</packaging>
 
     <build>
         <plugins>
