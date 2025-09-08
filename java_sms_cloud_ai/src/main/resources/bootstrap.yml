@@ -21,6 +21,9 @@ spring:
   ai:
     dashscope:
       api-key: sk-5f479889c5414fdbbd465e02e7e60291
+      chat:
+        options:
+          model: qwen-max
 
 
 server:

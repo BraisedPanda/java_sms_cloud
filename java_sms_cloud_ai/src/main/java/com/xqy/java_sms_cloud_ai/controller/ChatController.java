@@ -4,11 +4,16 @@ import com.alibaba.cloud.ai.dashscope.chat.DashScopeChatOptions;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+
+import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -17,11 +22,11 @@ public class ChatController {
 
     private static final String DEFAULT_PROMPT = "你是一个博学的智能聊天助手，请根据用户提问回答！";
 
-    private final ChatClient dashScopeChatClient;
+    private final ChatClient chatClient;
 
     // 也可以使用如下的方式注入 ChatClient
-    public ChatController(ChatClient.Builder chatClientBuilder) {
-        this.dashScopeChatClient = chatClientBuilder
+    public ChatController(ChatClient.Builder builder) {
+        this.chatClient = builder
                 .defaultSystem(DEFAULT_PROMPT)
                 // TODO
                 // 实现 Chat Memory 的 Advisor
@@ -48,17 +53,17 @@ public class ChatController {
     @GetMapping("/simple/chat")
     public String simpleChat(@RequestParam(value = "query", defaultValue = "你好，很高兴认识你，能简单介绍一下自己吗？") String query) {
 
-        return dashScopeChatClient.prompt(query).call().content();
+        return chatClient.prompt(query).call().content();
     }
 
     /**
      * ChatClient 流式调用
      */
-    @GetMapping("/stream/chat")
+    @GetMapping(value = "/stream/chat", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<String> streamChat(@RequestParam(value = "query", defaultValue = "你好，很高兴认识你，能简单介绍一下自己吗？") String query, HttpServletResponse response) {
 
         response.setCharacterEncoding("UTF-8");
-        return dashScopeChatClient.prompt(query).stream().content();
+        return chatClient.prompt(query).stream().content();
     }
 
     /**
@@ -77,7 +82,7 @@ public class ChatController {
 
         response.setCharacterEncoding("UTF-8");
 
-        return this.dashScopeChatClient.prompt(query)
+        return this.chatClient.prompt(query)
                 .advisors(
                         // TODO
 //						a -> a
@@ -85,6 +90,45 @@ public class ChatController {
 //								.param(CHAT_MEMORY_RETRIEVE_SIZE_KEY, 100)
                 ).stream().content();
     }
+
+    record ActorFilms(String actor, List<String> movies) {
+
+    }
+
+    @GetMapping("/movies")
+    public ActorFilms movies(@RequestParam(value = "input") String input) {
+        return this.chatClient.prompt()
+                .user(input)
+                .call()
+                .entity(ActorFilms.class);
+    }
+
+    @GetMapping("/movieList")
+    public List<ActorFilms> movieList(@RequestParam(value = "input") String input) {
+        return this.chatClient.prompt()
+                .user(input)
+                .call()
+                .entity(new ParameterizedTypeReference<List<ActorFilms>>() {});
+    }
+
+    @GetMapping("/chat/role")
+    Map<String, String> completion(@RequestParam String input, @RequestParam String role) {
+        return Map.of(
+                "completion",
+                this.chatClient.prompt()
+                        .system(str -> str.param("role", role))
+                        .user(input)
+                        .call()
+                        .content());
+
+    }
+
+
+
+
+
+
+
 
 }
 
