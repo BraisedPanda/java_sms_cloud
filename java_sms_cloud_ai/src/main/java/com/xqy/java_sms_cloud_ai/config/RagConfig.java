@@ -1,5 +1,6 @@
 package com.xqy.java_sms_cloud_ai.config;
 
+import com.alibaba.cloud.ai.dashscope.api.DashScopeApi;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.embedding.EmbeddingModel;

@@ -26,5 +26,17 @@ spring:
           model: qwen-max
 
 
+dubbo:
+  application:
+    name: ai-service-dubbo
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://localhost:8848
+  cloud:
+    subscribed-services: user-service  # 订阅的服务名
+
+
 server:
   port: 8003
